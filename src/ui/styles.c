@@ -40,7 +40,7 @@ void init_style_orange_buttons_MAIN_DEFAULT(lv_style_t *style) {
     lv_style_set_radius(style, 25);
     lv_style_set_text_align(style, LV_TEXT_ALIGN_CENTER);
     lv_style_set_text_font(style, &lv_font_montserrat_16);
-    //lv_style_set_bg_img_src(style, &img_undefined);
+    lv_style_set_bg_img_src(style, &img_undefined);
 };
 
 lv_style_t *get_style_orange_buttons_MAIN_DEFAULT() {
@@ -73,7 +73,7 @@ void init_style_dark_buttons_MAIN_DEFAULT(lv_style_t *style) {
     lv_style_set_radius(style, 25);
     lv_style_set_text_align(style, LV_TEXT_ALIGN_CENTER);
     lv_style_set_text_font(style, &lv_font_montserrat_16);
-    //lv_style_set_bg_img_src(style, &img_undefined);
+    lv_style_set_bg_img_src(style, &img_undefined);
 };
 
 lv_style_t *get_style_dark_buttons_MAIN_DEFAULT() {

@@ -48,7 +48,6 @@ static const void *getLvglImageByName(const char *name) {
 }
 
 void loadScreen(enum ScreensEnum screenId) {
-    log_v("loadScreen: %d", screenId);
     currentScreen = screenId - 1;
     lv_obj_t *screen = getLvglObjectFromIndex(currentScreen);
     lv_scr_load_anim(screen, LV_SCR_LOAD_ANIM_FADE_IN, 200, 0, false);

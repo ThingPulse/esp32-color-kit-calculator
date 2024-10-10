@@ -17,6 +17,7 @@ typedef struct _objects_t {
     lv_obj_t *equal;
     lv_obj_t *five;
     lv_obj_t *four;
+    lv_obj_t *label;
     lv_obj_t *minus;
     lv_obj_t *multiply;
     lv_obj_t *negate;
@@ -28,7 +29,6 @@ typedef struct _objects_t {
     lv_obj_t *three;
     lv_obj_t *two;
     lv_obj_t *zero;
-    lv_obj_t *label;
 } objects_t;
 
 extern objects_t objects;
