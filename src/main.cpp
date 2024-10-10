@@ -27,6 +27,7 @@
 
 
 void setup() {
+    delay(5000);
 	hal_setup();
 
     ui_init();  
