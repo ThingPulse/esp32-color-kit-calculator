@@ -1,0 +1,57 @@
+{
+    "title": "My Portfolio",
+    "gridWith": 2,
+    "gridHeight": 8,
+    "widgets": [
+        {
+            "label": "Vol+",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 1,
+            "icon": "fa-font",
+            "commands": [
+                "print('Hello World')",
+                "DELAY 200"
+            ]
+        },
+        {
+            "label": "Vol-",
+            "x": 1,
+            "y": 0,
+            "w": 1,
+            "h": 1,
+            "icon": "fa-font",
+            "commands": [
+                "print('Hello World')",
+                "DELAY 200"
+            ]
+        },
+        {
+            "label": "Mute",
+            "x": 1,
+            "y": 0,
+            "w": 1,
+            "h": 1,
+            "icon": "fa-font",
+            "commands": [
+                "print('Hello World')",
+                "DELAY 200"
+            ]
+        },
+        {
+            "label": "Off",
+            "x": 1,
+            "y": 0,
+            "w": 1,
+            "h": 1,
+            "icon": "fa-font",
+            "commands": [
+                "print('Hello World')",
+                "DELAY 200"
+            ]
+        }
+
+    ]
+
+}
