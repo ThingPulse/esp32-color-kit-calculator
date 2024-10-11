@@ -155,15 +155,17 @@ void hal_setup()
     log_i("Benchmark done");
 
 }
-
+uint32_t lastLogMillis = 0;
 void hal_loop()
 {
   lv_timer_handler();
-  delay(1);
   if (lastTouchMillis > 0 && millis() - lastTouchMillis > 60000) {
     lastTouchMillis = 0;
     gotoSleep();
   }
   button.loop();
-  //log_i("Time: %d", millis());
+  if (millis() - lastLogMillis > 1000) {
+    lastLogMillis = millis();
+    log_i("Time: %d", millis());
+  }
 }

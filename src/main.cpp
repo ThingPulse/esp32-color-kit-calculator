@@ -27,11 +27,13 @@
 
 
 void setup() {
-    delay(5000);
 	hal_setup();
+    log_i("main", "hal_setup done");
 
     ui_init();  
+    log_i("main", "ui init done");
     assign_callbacks();
+    log_i("main", "assign callbacks done");
 
 }
 

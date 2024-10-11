@@ -18,7 +18,7 @@
 
 // Macros for logging, each checks the current log level and prints if the level is allowed
 
-#define log_v(tag, fmt, ...) \
+#define log_i(tag, fmt, ...) \
     do { if (CURRENT_LOG_LEVEL <= LOG_LEVEL_VERBOSE) \
         printf("[VERBOSE] [%s] " fmt "\n", tag, ##__VA_ARGS__); \
     } while(0)

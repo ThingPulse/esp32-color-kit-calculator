@@ -56,12 +56,12 @@
         {
           "objID": "3bf2a545-c242-4855-a11d-75edc6df3e40",
           "fileName": "images.h",
-          "template": "#ifndef EEZ_LVGL_UI_IMAGES_H\r\n#define EEZ_LVGL_UI_IMAGES_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n//${eez-studio LVGL_IMAGES_DECL}\r\n\r\n#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n#endif /*EEZ_LVGL_UI_IMAGES_H*/"
+          "template": "#ifndef EEZ_LVGL_UI_IMAGES_H\r\n#define EEZ_LVGL_UI_IMAGES_H\r\n\r\n//${eez-studio LVGL_INCLUDE}\r\n\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n//${eez-studio LVGL_IMAGES_DECL}\r\n\r\nextern const lv_img_dsc_t img_undefined;\r\n\r\n#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n#endif /*EEZ_LVGL_UI_IMAGES_H*/"
         },
         {
           "objID": "23fa226c-e038-4d85-cfea-d4c0b32af3f9",
           "fileName": "images.c",
-          "template": "#include \"images.h\"\n\n//${eez-studio LVGL_IMAGES_DEF}"
+          "template": "#include \"images.h\"\n\n//${eez-studio LVGL_IMAGES_DEF}\n\nconst lv_img_dsc_t img_undefined = {\n    .header.always_zero = 0,\n    .header.w = 0,\n    .header.h = 0,\n    .header.cf = LV_IMG_CF_UNKNOWN,\n    .data_size = 0,\n    .data = NULL,\n};"
         },
         {
           "objID": "4ddbc692-8a18-40bd-853c-b846ee0e9b6f",
@@ -90,7 +90,7 @@
         }
       ],
       "destinationFolder": "src\\ui",
-      "lvglInclude": "lvgl/lvgl.h",
+      "lvglInclude": "lvgl.h",
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
       "executionQueueSize": 1000,

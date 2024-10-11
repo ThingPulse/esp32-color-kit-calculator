@@ -29,7 +29,7 @@ void ac_cb(lv_event_t *e) {
 void num_cb(lv_event_t *e) {
     
     uint32_t* btn_value = (uint32_t*)lv_event_get_user_data(e);  // Get button's value
-    log_v("calculator", "num_cb: %d", btn_value);  
+    log_i("calculator", "num_cb: %d", btn_value);  
     if (is_new_input) {
         strcpy(current_number, "0");
         is_new_input = false;
@@ -54,7 +54,7 @@ void num_cb(lv_event_t *e) {
 
 // Function to handle the decimal point
 void decimal_cb(lv_event_t *e) {
-    log_v("calculator", "decimal point");
+    log_i("calculator", "decimal point");
     if (!has_decimal) {
         strcat(current_number, ".");
         has_decimal = true;
@@ -64,9 +64,9 @@ void decimal_cb(lv_event_t *e) {
 
 // Function to handle operator button presses (+, -, *, ÷)
 void operator_cb(lv_event_t *e) {
-    log_v("calculator", "operator");  
+    log_i("calculator", "operator");  
     char* op = (char *)lv_event_get_user_data(e);  // Get the operator char
-    log_v("calculator", "operator: %s", op);  
+    log_i("calculator", "operator: %s", op);  
 
     previous_number = atof(current_number);
     current_operator = *op;  // Use 'current_operator' instead of 'operator'
