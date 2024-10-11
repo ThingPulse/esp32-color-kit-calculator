@@ -474,7 +474,6 @@ void create_screen_main() {
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
     }
-    lv_disp_load_scr(objects.main);
 }
 
 void tick_screen_main() {
