@@ -81,18 +81,18 @@ void handleTap(Button2& b) {
 
 
 /* Display flushing */
-void my_disp_flush( lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p )
-{
-    if (gfx.getStartCount() == 0)
-    {   // Processing if not yet started
-        gfx.startWrite();
-    }
-    gfx.pushImageDMA( area->x1
-                    , area->y1
-                    , area->x2 - area->x1 + 1
-                    , area->y2 - area->y1 + 1
-                    , ( lgfx::swap565_t* )&color_p->full);
-    
+void my_disp_flush( lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p ) {
+
+    uint32_t w = ( area->x2 - area->x1 + 1 );
+    uint32_t h = ( area->y2 - area->y1 + 1 );
+
+    gfx.startWrite();
+    gfx.setAddrWindow(area->x1, area->y1, w, h);
+
+    gfx.pushPixelsDMA((uint16_t*)&color_p->full, w * h);
+
+    gfx.endWrite();
+
     lv_disp_flush_ready( disp );
 }
 
@@ -157,9 +157,9 @@ void hal_setup()
 
 }
 uint32_t lastLogMillis = 0;
-void hal_loop()
-{
+void hal_loop() {
   lv_timer_handler();
+  delay(1);
   if (lastTouchMillis > 0 && millis() - lastTouchMillis > 60000) {
     lastTouchMillis = 0;
     gotoSleep();
