@@ -1,5 +1,5 @@
 
-
+/*
 #define PIN_TACTILE_BUTTON1 1
 #define PIN_TACTILE_BUTTON2 2
 #define PIN_TACTILE_BUTTON3 4
@@ -30,3 +30,4 @@
 #define PIN_I2C_SDA 40
 #define PIN_I2C_SCL 41
 #define PIN_BUZZER 42
+*/

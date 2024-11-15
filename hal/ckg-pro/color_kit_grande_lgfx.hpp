@@ -2,19 +2,20 @@
 
 #define LGFX_USE_V1
 
+
 #include <LovyanGFX.hpp>
 #include <driver/i2c.h>
 #include "settings.h"
 
 
-class CKGCompact : public lgfx::LGFX_Device
+class ColorKitGrande : public lgfx::LGFX_Device
 {
   static constexpr int I2C_PORT_NUM = I2C_NUM_0;
-  static constexpr int I2C_PIN_SDA = 40;
-  static constexpr int I2C_PIN_SCL = 41;
-  static constexpr int I2C_PIN_INT = 6;
+  static constexpr int I2C_PIN_SDA = TOUCH_SDA;
+  static constexpr int I2C_PIN_SCL = TOUCH_SCL;
+  static constexpr int I2C_PIN_INT = TOUCH_INT;
 
-  lgfx::Bus_Parallel16 _bus_instance;
+  lgfx::Bus_SPI _bus_instance;
   lgfx::Panel_ILI9488 _panel_instance;
   lgfx::Light_PWM     _light_instance;
   lgfx::ITouch*  _touch_instance_ptr = nullptr;
@@ -64,40 +65,28 @@ class CKGCompact : public lgfx::LGFX_Device
 
 public:
 
-  CKGCompact(void)
+  ColorKitGrande(void)
   {
     {
       auto cfg = _bus_instance.config();
-
-      cfg.freq_write = 40000000;
-      cfg.pin_wr = PIN_TFT_WR;
-      cfg.pin_rd = PIN_TFT_RD;
-      cfg.pin_rs = PIN_TFT_RS;
-
-      cfg.pin_d0 = PIN_DB0;
-      cfg.pin_d1 = PIN_DB1;
-      cfg.pin_d2 = PIN_DB2;
-      cfg.pin_d3 = PIN_DB3;
-      cfg.pin_d4 = PIN_DB4;
-      cfg.pin_d5 = PIN_DB5;
-      cfg.pin_d6 = PIN_DB6;
-      cfg.pin_d7 = PIN_DB7;
-      cfg.pin_d8 = PIN_DB8;
-      cfg.pin_d9 = PIN_DB9;
-      cfg.pin_d10 = PIN_DB10;
-      cfg.pin_d11 = PIN_DB11;
-      cfg.pin_d12 = PIN_DB12;
-      cfg.pin_d13 = PIN_DB13;
-      cfg.pin_d14 = PIN_DB14;
-      cfg.pin_d15 = PIN_DB15;
+          
+      cfg.freq_write = 40000000;    
+      cfg.freq_read  = 16000000;    
+     
+      cfg.dma_channel = 1; 
+      cfg.pin_sclk = TFT_SCLK;            
+      cfg.pin_mosi = TFT_MOSI;            
+      cfg.pin_miso = TFT_MISO;            
+      cfg.pin_dc   = TFT_DC;  
+          
       _bus_instance.config(cfg);
       _panel_instance.bus(&_bus_instance);
     }
 
     {
       auto cfg = _panel_instance.config();
-      cfg.pin_cs          =    PIN_TFT_CS;
-      cfg.pin_rst         =    PIN_TFT_RESET;
+      cfg.pin_cs          =    TFT_CS;
+      cfg.pin_rst         =    TFT_RST;
       cfg.pin_busy        =    -1;
       cfg.offset_rotation =     2;
       cfg.readable        =  true;
@@ -112,7 +101,7 @@ public:
     {
       auto cfg = _light_instance.config();
 
-      cfg.pin_bl = PIN_TFT_LED;
+      cfg.pin_bl = TFT_BL;
       cfg.invert = false;
       cfg.freq   = 44100;
       cfg.pwm_channel = 7;

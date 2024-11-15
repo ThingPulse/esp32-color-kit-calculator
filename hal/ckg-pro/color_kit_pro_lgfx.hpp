@@ -7,7 +7,7 @@
 #include "settings.h"
 
 
-class CKGCompact : public lgfx::LGFX_Device
+class ColorKitPro : public lgfx::LGFX_Device
 {
   static constexpr int I2C_PORT_NUM = I2C_NUM_0;
   static constexpr int I2C_PIN_SDA = 40;
@@ -64,7 +64,7 @@ class CKGCompact : public lgfx::LGFX_Device
 
 public:
 
-  CKGCompact(void)
+  ColorKitPro(void)
   {
     {
       auto cfg = _bus_instance.config();
