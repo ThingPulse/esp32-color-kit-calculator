@@ -1,7 +1,13 @@
 //#define LGFX_AUTODETECT
 //#include <LGFX_AUTODETECT.hpp>
 #include "app_hal.h"
-#include "lgfx_ckg_compact.hpp"
+#if defined(COLOR_KIT_PRO)
+  #include "color_kit_pro_lgfx.hpp"
+#elif defined(COLOR_KIT_GRANDE)
+  #include "color_kit_grande_lgfx.hpp"
+#elif
+ #error "Please define your board"
+#endif
 
 #include <lvgl.h>
 
