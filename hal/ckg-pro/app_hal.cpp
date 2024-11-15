@@ -88,7 +88,6 @@ void my_disp_flush( lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *colo
 
     gfx.startWrite();
     gfx.setAddrWindow(area->x1, area->y1, w, h);
-
     gfx.pushPixelsDMA((uint16_t*)&color_p->full, w * h);
 
     gfx.endWrite();
@@ -149,7 +148,7 @@ void hal_setup()
     indev_drv.type = LV_INDEV_TYPE_POINTER;
     indev_drv.read_cb = my_touchpad_read;
     lv_indev_drv_register( &indev_drv );
-
+    gfx.setBrightness(255);
     button.begin(BUTTON_PIN);
     button.setTapHandler(handleTap);
 
@@ -160,13 +159,9 @@ uint32_t lastLogMillis = 0;
 void hal_loop() {
   lv_timer_handler();
   delay(1);
-  if (lastTouchMillis > 0 && millis() - lastTouchMillis > 60000) {
+  if (lastTouchMillis > 0 && millis() - lastTouchMillis > AUTO_SLEEP_MILLIS) {
     lastTouchMillis = 0;
     gotoSleep();
   }
   button.loop();
-  if (millis() - lastLogMillis > 1000) {
-    lastLogMillis = millis();
-    log_i("Time: %d", millis());
-  }
 }
