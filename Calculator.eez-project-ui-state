@@ -180,62 +180,11 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 38.702127659574465,
+              "selected": -1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
-              "children": [
-                {
-                  "type": "tab",
-                  "id": "#e3f1889d-04ae-41b1-9940-1d603e304396",
-                  "name": "OpenSans16",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[Calculator.eez-project]:/fonts/0",
-                    "permanent": false
-                  },
-                  "icon": "material:font_download"
-                },
-                {
-                  "type": "tab",
-                  "id": "#db066f3a-722e-4408-8d3c-dc6dd98cfd45",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[Calculator.eez-project]:/settings",
-                    "subObjectPath": "[Calculator.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
-                  "id": "#aaf3aa64-6abb-49a5-b416-a307f0379bcd",
-                  "name": "Main",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[Calculator.eez-project]:/userPages/0",
-                    "permanent": false
-                  },
-                  "icon": {
-                    "type": "svg",
-                    "key": null,
-                    "ref": null,
-                    "props": {
-                      "viewBox": "0 96 960 960",
-                      "fill": "currentColor",
-                      "children": {
-                        "type": "path",
-                        "key": null,
-                        "ref": null,
-                        "props": {
-                          "d": "M343 636h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42V236q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560V236H260v560ZM140 976q-24 0-42-18t-18-42V296h60v620h620v60H140Zm120-740v560-560Z"
-                        },
-                        "_owner": null
-                      }
-                    },
-                    "_owner": null
-                  }
-                }
-              ]
+              "children": [],
+              "active": true
             },
             {
               "type": "row",
@@ -255,8 +204,7 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
